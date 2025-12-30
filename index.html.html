@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPad業務用Chrome 使い方マニュアル</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            background-color: white;
+            padding: 30px 40px;
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #1a73e8;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #1a73e8;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 5px solid #1a73e8;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #34a853;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background-color: #e8f5e9;
+            border-radius: 6px;
+        }
+        
+        .step-image {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #1a73e8;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .info-box strong {
+            color: #1a73e8;
+            font-size: 1.1em;
+        }
+        
+        .point-box {
+            background-color: #fff9e6;
+            border-left: 4px solid #fbbc04;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .point-box strong {
+            color: #f57c00;
+            font-size: 1.1em;
+        }
+        
+        .warning-box {
+            background-color: #ffebee;
+            border-left: 4px solid #e53935;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.1em;
+        }
+        
+        .success-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #34a853;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .success-box strong {
+            color: #2e7d32;
+            font-size: 1.1em;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+        
+        .security-section {
+            background-color: #fff3e0;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .security-section h2 {
+            color: #e65100;
+            border-left-color: #e65100;
+        }
+        
+        .danger-list {
+            background-color: #ffebee;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .danger-list li {
+            color: #c62828;
+        }
+        
+        .safe-list {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .safe-list li {
+            color: #2e7d32;
+        }
+        
+        .faq-item {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .faq-question {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer {
+            color: #555;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .contact-box h2 {
+            color: white;
+            border: none;
+            margin: 0 0 20px 0;
+            padding: 0;
+        }
+        
+        .contact-box p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        
+        .final-message {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .final-message h2 {
+            color: white;
+            border: none;
+            margin: 0 0 20px 0;
+            padding: 0;
+        }
+        
+        .checklist {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 2px dashed #1a73e8;
+        }
+        
+        .checklist h3 {
+            background-color: #1a73e8;
+            color: white;
+            margin: 20px -15px 15px -15px;
+            padding: 12px 15px;
+        }
+        
+        .checklist ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .checklist li {
+            padding: 8px 0;
+            font-size: 1.1em;
+        }
+        
+        .checklist li:before {
+            content: "☐ ";
+            font-size: 1.3em;
+            margin-right: 10px;
+            color: #1a73e8;
+        }
+        
+        .quick-guide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .quick-guide-item {
+            background-color: #f5f5f5;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #1a73e8;
+        }
+        
+        .quick-guide-item h3 {
+            background-color: #1a73e8;
+            color: white;
+            margin: -25px -25px 20px -25px;
+            padding: 15px 25px;
+            border-radius: 6px 6px 0 0;
+        }
+        
+        .quick-guide-item ol {
+            margin-left: 25px;
+        }
+        
+        .quick-guide-item li {
+            margin: 12px 0;
+            font-size: 1.05em;
+        }
+        
+        .important-highlight {
+            background-color: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px 20px;
+            }
+            
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+            
+            .quick-guide {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 iPad業務用Chrome 使い方マニュアル</h1>
+        <p class="subtitle">〜初めての方でも安心してご利用いただけます〜</p>
+        
+        <h2>🌅 出勤時:Chromeにログインする</h2>
+        
+        <h3>ステップ1️⃣ iPadを受け取ったら、Chromeアプリを開きます</h3>
+        <img src="https://www.genspark.ai/api/files/s/lS3qR0Fy?cache_control=3600" alt="ChromeアプリアイコンがiPadホーム画面に表示されている様子" class="step-image">
+        
+        <div class="info-box">
+            <strong>📍 どこにある?</strong><br>
+            ホーム画面で「Chrome」という名前のアイコンを探してタップしてください。<br>
+            青・赤・黄・緑の4色の丸いマークが目印です。
+        </div>
+        
+        <h3>ステップ2️⃣ 「Chrome にログイン」ボタンをタップします</h3>
+        <img src="https://www.genspark.ai/api/files/s/6yiX4UOn?cache_control=3600" alt="Chromeログイン画面に「Chromeにログイン」ボタンが表示されている" class="step-image">
+        
+        <div class="info-box">
+            <strong>✅ やること:</strong>
+            <ul>
+                <li>画面中央に表示される「Chrome にログイン」ボタンをタップ</li>
+                <li>あなたの会社用Googleアカウントの情報を入力します
+                    <ul>
+                        <li><span class="important-highlight">メールアドレス</span>: 会社から配布されたもの</li>
+                        <li><span class="important-highlight">パスワード</span>: あなたが設定したもの</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="point-box">
+            <strong>💡 ポイント:</strong>
+            <ul>
+                <li>入力は落ち着いてゆっくりで大丈夫です</li>
+                <li>パスワードが「●●●●」と表示されるのは、セキュリティのためです</li>
+                <li>間違えても何度でもやり直せます</li>
+            </ul>
+        </div>
+        
+        <h3>ステップ3️⃣ ログイン完了を確認します</h3>
+        
+        <div class="success-box">
+            <strong>✅ 確認方法:</strong><br>
+            画面の右上に、あなたのアカウントの最初の文字やアイコンが表示されていればOKです!
+        </div>
+        
+        <div class="success-box">
+            <strong>🎉 これで準備完了!</strong><br>
+            いつも通り、お仕事を始めてください。
+        </div>
+        
+        <h2>🌙 退勤時:Chromeからログアウトする</h2>
+        
+        <div class="warning-box">
+            <strong>⚠️ とても重要な作業です!必ず実施してください</strong>
+        </div>
+        
+        <h3>ステップ1️⃣ 画面右上のプロフィールアイコンをタップ</h3>
+        <img src="https://www.genspark.ai/api/files/s/j0WikC75?cache_control=3600" alt="画面右上のプロフィールアイコンの位置が赤い印で示されている" class="step-image">
+        
+        <div class="info-box">
+            <strong>📍 どこにある?</strong><br>
+            画面の一番右上に、丸いアイコンがあります。<br>
+            そこをタップしてください。
+        </div>
+        
+        <h3>ステップ2️⃣ 「ログアウト」をタップ</h3>
+        <img src="https://www.genspark.ai/api/files/s/CcBD8IzC?cache_control=3600" alt="メニューに「ログアウト」ボタンが表示されている" class="step-image">
+        
+        <div class="info-box">
+            <strong>✅ やること:</strong>
+            <ul>
+                <li>メニューが表示されます</li>
+                <li>「ログアウト」と書かれたボタンを探します</li>
+                <li>そのボタンをタップしてください</li>
+            </ul>
+        </div>
+        
+        <div class="point-box">
+            <strong>💡 ポイント:</strong>
+            <ul>
+                <li>メニューは下にスクロールできます</li>
+                <li>「ログアウト」が見つからない場合は、下の方を確認してください</li>
+            </ul>
+        </div>
+        
+        <h3>ステップ3️⃣ ログアウト完了を確認</h3>
+        <img src="https://www.genspark.ai/api/files/s/x1nxRv4A?cache_control=3600" alt="ログアウト後、再び「Chromeにログイン」ボタンが表示されている" class="step-image">
+        
+        <div class="success-box">
+            <strong>✅ 確認方法:</strong>
+            <ul>
+                <li>画面に再び「Chrome にログイン」ボタンが表示されている</li>
+                <li>右上のあなたのアイコンが消えている</li>
+            </ul>
+        </div>
+        
+        <div class="success-box">
+            <strong>🎉 これで完了です!</strong><br>
+            安心してiPadを返却してください。
+        </div>
+        
+        <div class="security-section">
+            <h2>⚠️ なぜログアウトが必要なの?</h2>
+            <img src="https://www.genspark.ai/api/files/s/841cAGnW?cache_control=3600" alt="二人の人物がiPadを介して情報が漏れる危険性を示すイラスト" class="step-image">
+            
+            <h3 style="background-color: #ffebee; color: #c62828;">ログアウトしないと...</h3>
+            <div class="danger-list">
+                <strong>❌ 次に使う人があなたのアカウントで作業できてしまいます</strong>
+                <ul>
+                    <li>あなたのメールが見られる</li>
+                    <li>あなたの名前で文書が作成される</li>
+                    <li>あなたの個人情報が見られる</li>
+                </ul>
+            </div>
+            
+            <h3 style="background-color: #e8f5e9; color: #2e7d32;">ログアウトすれば安心!</h3>
+            <div class="safe-list">
+                <strong>✅ あなたの情報が守られます</strong>
+                <ul>
+                    <li>次の人は必ず自分のアカウントでログインする必要があります</li>
+                    <li>あなたの情報は守られます</li>
+                    <li>会社の大切な情報も守られます</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <strong>📌 ログアウトは「鍵をかける」のと同じです</strong><br>
+                家を出るときに鍵をかけるように、退勤時は必ずログアウトしてください。
+            </div>
+        </div>
+        
+        <h2>💡 困ったときは(よくある質問)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Q1: パスワードを忘れてしまいました</div>
+            <div class="faq-answer">
+                <strong>A:</strong> 情報システム部門にご連絡ください。<br>
+                <ul>
+                    <li>内線番号:XXXX</li>
+                    <li>メール:<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="356d6d6d75565a5845545b4c1b565a58">[email&#160;protected]</a></li>
+                </ul>
+                すぐに対応いたします。焦らず連絡してください。
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Q2: ログアウトボタンが見つかりません</div>
+            <div class="faq-answer">
+                <strong>A:</strong> 以下を確認してください:
+                <ol>
+                    <li>画面右上の丸いアイコンをタップしましたか?</li>
+                    <li>メニューが表示されたら、下の方までスクロールしてみてください</li>
+                    <li>「ログアウト」という文字を探してください</li>
+                </ol>
+                それでも見つからない場合は、情報システム部門にお声がけください。
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Q3: 間違えて他の人のアカウントでログインしてしまいました</div>
+            <div class="faq-answer">
+                <strong>A:</strong> すぐにログアウトしてください:
+                <ol>
+                    <li>画面右上のアイコンをタップ</li>
+                    <li>「ログアウト」をタップ</li>
+                    <li>自分のアカウントで再度ログイン</li>
+                </ol>
+                問題ありません。焦らず対応してください。
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">Q4: iPadの使い方自体がよくわかりません</div>
+            <div class="faq-answer">
+                <strong>A:</strong> 大丈夫です!
+                <ul>
+                    <li>初めての方向けの講習会を定期的に開催しています</li>
+                    <li>情報システム部門がサポートいたします</li>
+                    <li>同僚の方にも気軽に聞いてください</li>
+                </ul>
+                <strong>分からないことは、恥ずかしいことではありません。</strong><br>
+                誰でも最初は初心者です。一つずつ覚えていきましょう。
+            </div>
+        </div>
+        
+        <div class="contact-box">
+            <h2>📞 サポート窓口</h2>
+            <p><strong>何かお困りのことがあれば、いつでもご連絡ください</strong></p>
+            <p>📞 内線:XXXX</p>
+            <p>📧 メール:<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96cececed6f5f9fbe6f7f8efb8f5f9fb">[email&#160;protected]</a></p>
+            <p>⏰ 対応時間:平日 9:00-18:00</p>
+            <br>
+            <p><strong>緊急時の対応</strong></p>
+            <p>業務に支障が出る場合は、すぐにご連絡ください</p>
+            <p>遠慮なくお問い合わせください</p>
+        </div>
+        
+        <div class="final-message">
+            <h2>✨ 最後に</h2>
+            <p>このマニュアルは、皆様が安心してiPadを使って業務を進められるように作成しました。</p>
+            <br>
+            <p><strong>大切なポイントは2つだけ:</strong></p>
+            <p>1. <span style="background-color: rgba(255,255,255,0.3); padding: 5px 10px; border-radius: 5px;">出勤時</span>: 自分のアカウントでログイン</p>
+            <p>2. <span style="background-color: rgba(255,255,255,0.3); padding: 5px 10px; border-radius: 5px;">退勤時</span>: 必ずログアウト</p>
+            <br>
+            <p>慣れれば数十秒で完了する簡単な作業です。</p>
+            <p>分からないことがあれば、いつでもサポートいたします。</p>
+            <br>
+            <p style="font-size: 1.3em;"><strong>一緒に、新しい働き方を楽しみましょう!</strong> 🚀</p>
+        </div>
+        
+        <div class="checklist">
+            <h2 style="text-align: center; color: #1a73e8; border: none; padding: 0; margin-bottom: 30px;">📋 チェックリスト(印刷用)</h2>
+            
+            <h3>出勤時</h3>
+            <ul>
+                <li>iPadを受け取った</li>
+                <li>Chromeアプリを開いた</li>
+                <li>自分のアカウントでログインした</li>
+                <li>ログインを確認した(右上にアイコン表示)</li>
+            </ul>
+            
+            <h3>退勤時</h3>
+            <ul>
+                <li>作業を終了した</li>
+                <li>右上のアイコンをタップした</li>
+                <li>ログアウトをタップした</li>
+                <li>ログアウトを確認した(「Chromeにログイン」ボタンが表示)</li>
+                <li>iPadを返却した</li>
+            </ul>
+            
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                <strong>このチェックリストを印刷して、デスクに置いておくと便利です!</strong>
+            </p>
+        </div>
+        
+        <h2 style="text-align: center;">📱 クイックガイド(簡易版)</h2>
+        <div class="quick-guide">
+            <div class="quick-guide-item">
+                <h3>出勤時</h3>
+                <ol>
+                    <li>Chromeアプリを開く</li>
+                    <li>「Chrome にログイン」をタップ</li>
+                    <li>メールアドレスとパスワードを入力</li>
+                    <li>✅ 右上にアイコンが表示されたら完了</li>
+                </ol>
+            </div>
+            
+            <div class="quick-guide-item">
+                <h3>退勤時</h3>
+                <ol>
+                    <li>右上のアイコンをタップ</li>
+                    <li>「ログアウト」をタップ</li>
+                    <li>✅「Chrome にログイン」が表示されたら完了</li>
+                    <li>iPadを返却</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><em>最終更新日:2025年12月</em></p>
+            <p><em>情報システム部門</em></p>
+        </div>
+    </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
