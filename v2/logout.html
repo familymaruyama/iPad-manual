@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>退勤時にやること - iPad業務マニュアル</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .back-button {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .header h1 {
+            font-size: 1.8em;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .page-title {
+            font-size: 2em;
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #1a73e8;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #1a73e8;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 5px solid #1a73e8;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #34a853;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background-color: #e8f5e9;
+            border-radius: 6px;
+        }
+        
+        .step-image {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #1a73e8;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .info-box strong {
+            color: #1a73e8;
+            font-size: 1.1em;
+        }
+        
+        .point-box {
+            background-color: #fff9e6;
+            border-left: 4px solid #fbbc04;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .point-box strong {
+            color: #f57c00;
+            font-size: 1.1em;
+        }
+        
+        .warning-box {
+            background-color: #ffebee;
+            border-left: 4px solid #e53935;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .warning-box strong {
+            color: #c62828;
+            font-size: 1.1em;
+        }
+        
+        .success-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #34a853;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .success-box strong {
+            color: #2e7d32;
+            font-size: 1.1em;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+        
+        .security-section {
+            background-color: #fff3e0;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .security-section h2 {
+            color: #e65100;
+            border-left-color: #e65100;
+        }
+        
+        .danger-list {
+            background-color: #ffebee;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .danger-list li {
+            color: #c62828;
+        }
+        
+        .safe-list {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .safe-list li {
+            color: #2e7d32;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            opacity: 0.9;
+        }
+        
+        .nav-button.secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .page-title {
+                font-size: 1.6em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="index.html" class="back-button">← ホームに戻る</a>
+            <h1>🌙 退勤時にやること</h1>
+            <div style="width: 120px;"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1 class="page-title">Google Chrome ログアウト手順</h1>
+        <p class="subtitle">セキュリティのため必ず実施してください</p>
+        
+        <div class="warning-box">
+            <strong>⚠️ とても重要な作業です!</strong><br>
+            退勤時は必ずログアウトしてください。ログアウトしないと、次に使う人があなたのアカウントで作業できてしまいます。
+        </div>
+        
+        <h2>🔐 Chromeからログアウトする</h2>
+        
+        <h3>ステップ1️⃣ 画面右上のプロフィールアイコンをタップ</h3>
+        <img src="../images/profile-icon.jpg" alt="画面右上のプロフィールアイコンの位置が赤い印で示されている" class="step-image">
+        
+        <div class="info-box">
+            <strong>📍 どこにある?</strong><br>
+            画面の一番右上に、丸いアイコンがあります。<br>
+            そこをタップしてください。
+        </div>
+        
+        <h3>ステップ2️⃣ 「ログアウト」をタップ</h3>
+        <img src="../images/logout-button.jpg" alt="メニューに「ログアウト」ボタンが表示されている" class="step-image">
+        
+        <div class="info-box">
+            <strong>✅ やること:</strong>
+            <ul>
+                <li>メニューが表示されます</li>
+                <li>「ログアウト」と書かれたボタンを探します</li>
+                <li>そのボタンをタップしてください</li>
+            </ul>
+        </div>
+        
+        <div class="point-box">
+            <strong>💡 ポイント:</strong>
+            <ul>
+                <li>メニューは下にスクロールできます</li>
+                <li>「ログアウト」が見つからない場合は、下の方を確認してください</li>
+            </ul>
+        </div>
+        
+        <h3>ステップ3️⃣ ログアウト完了を確認</h3>
+        <img src="../images/logout-complete.jpg" alt="ログアウト後、再び「Chromeにログイン」ボタンが表示されている" class="step-image">
+        
+        <div class="success-box">
+            <strong>✅ 確認方法:</strong>
+            <ul>
+                <li>画面に再び「Chrome にログイン」ボタンが表示されている</li>
+                <li>右上のあなたのアイコンが消えている</li>
+            </ul>
+        </div>
+        
+        <div class="success-box">
+            <strong>🎉 これで完了です!</strong><br>
+            安心してiPadを返却してください。
+        </div>
+        
+        <div class="security-section">
+            <h2>⚠️ なぜログアウトが必要なの?</h2>
+            <img src="../images/security-warning.jpg" alt="二人の人物がiPadを介して情報が漏れる危険性を示すイラスト" class="step-image">
+            
+            <h3 style="background-color: #ffebee; color: #c62828;">ログアウトしないと...</h3>
+            <div class="danger-list">
+                <strong>❌ 次に使う人があなたのアカウントで作業できてしまいます</strong>
+                <ul>
+                    <li>あなたのメールが見られる</li>
+                    <li>あなたの名前で文書が作成される</li>
+                    <li>あなたの個人情報が見られる</li>
+                </ul>
+            </div>
+            
+            <h3 style="background-color: #e8f5e9; color: #2e7d32;">ログアウトすれば安心!</h3>
+            <div class="safe-list">
+                <strong>✅ あなたの情報が守られます</strong>
+                <ul>
+                    <li>次の人は必ず自分のアカウントでログインする必要があります</li>
+                    <li>あなたの情報は守られます</li>
+                    <li>会社の大切な情報も守られます</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <strong>📌 ログアウトは「鍵をかける」のと同じです</strong><br>
+                家を出るときに鍵をかけるように、退勤時は必ずログアウトしてください。
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <a href="login.html" class="nav-button secondary">← 出勤時の手順を見る</a>
+            <a href="index.html" class="nav-button">ホームに戻る →</a>
+        </div>
+    </div>
+</body>
+</html>

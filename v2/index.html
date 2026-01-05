@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>業務用iPad　活用ガイドライン - ホーム</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .menu-card .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .menu-card h2 {
+            font-size: 1.5em;
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+        
+        .menu-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .menu-card .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        
+        .menu-card .btn:hover {
+            opacity: 0.9;
+        }
+        
+        .priority {
+            border: 3px solid #f57c00;
+            position: relative;
+        }
+        
+        .priority::before {
+            content: "必須";
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #f57c00;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .menu-card {
+                padding: 25px;
+            }
+            
+            .menu-card .icon {
+                font-size: 2.5em;
+            }
+            
+            .menu-card h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 業務用iPad　活用ガイドライン　</h1>
+            <p>〜iPadを使った業務をサポートします〜</p>
+        </div>
+        
+        <div class="menu-grid">
+            <!-- 出勤時にやること -->
+            <a href="login.html" class="menu-card priority">
+                <span class="icon">🌅</span>
+                <h2>出勤時にやること</h2>
+                <p>Google Chromeへのログイン手順を確認できます。毎日の業務開始時に必ず実施してください。</p>
+                <span class="btn">詳しく見る →</span>
+            </a>
+            
+            <!-- 退勤時にやること -->
+            <a href="logout.html" class="menu-card priority">
+                <span class="icon">🌙</span>
+                <h2>退勤時にやること</h2>
+                <p>Google Chromeからのログアウト手順を確認できます。セキュリティのため必ず実施してください。</p>
+                <span class="btn">詳しく見る →</span>
+            </a>
+            
+            <!-- キーボードの接続方法 -->
+            <a href="keyboard.html" class="menu-card">
+                <span class="icon">⌨️</span>
+                <h2>キーボードの接続方法</h2>
+                <p>Bluetoothキーボードの接続手順とトラブル対処法を確認できます。</p>
+                <span class="btn">詳しく見る →</span>
+            </a>
+            
+            <!-- Apple Pencilの接続方法 -->
+            <a href="apple-pencil.html" class="menu-card">
+                <span class="icon">✏️</span>
+                <h2>Apple Pencilの接続方法</h2>
+                <p>Apple Pencilのペアリング方法と充電方法を確認できます。</p>
+                <span class="btn">詳しく見る →</span>
+            </a>
+            
+            <!-- iPadのコツ -->
+            <a href="tips.html" class="menu-card">
+                <span class="icon">💡</span>
+                <h2>iPadのコツ</h2>
+                <p>便利な使い方やよくあるトラブルの対処法を確認できます。</p>
+                <span class="btn">詳しく見る →</span>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p><strong>📞 サポート</strong></p>
+            
+            <p style="margin-top: 20px; font-size: 0.9em;">© 2025 DX戦略課　</p>
+        </div>
+    </div>
+</body>
+</html>

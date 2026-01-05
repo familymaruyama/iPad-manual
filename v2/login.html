@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出勤時にやること - iPad業務マニュアル</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .back-button {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .header h1 {
+            font-size: 1.8em;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .page-title {
+            font-size: 2em;
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #1a73e8;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #1a73e8;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 5px solid #1a73e8;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #34a853;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background-color: #e8f5e9;
+            border-radius: 6px;
+        }
+        
+        .step-image {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid #1a73e8;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .info-box strong {
+            color: #1a73e8;
+            font-size: 1.1em;
+        }
+        
+        .point-box {
+            background-color: #fff9e6;
+            border-left: 4px solid #fbbc04;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .point-box strong {
+            color: #f57c00;
+            font-size: 1.1em;
+        }
+        
+        .success-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #34a853;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+        
+        .success-box strong {
+            color: #2e7d32;
+            font-size: 1.1em;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+        
+        .important-highlight {
+            background-color: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            opacity: 0.9;
+        }
+        
+        .nav-button.secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .page-title {
+                font-size: 1.6em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="index.html" class="back-button">← ホームに戻る</a>
+            <h1>🌅 出勤時にやること</h1>
+            <div style="width: 120px;"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1 class="page-title">Google Chrome ログイン手順</h1>
+        <p class="subtitle">毎日の業務開始時に必ず実施してください</p>
+        
+        <h2>📱 Chromeにログインする</h2>
+        
+        <h3>ステップ1️⃣ iPadを受け取ったら、Chromeアプリを開きます</h3>
+        <img src="../images/chrome-icon.jpg" alt="ChromeアプリアイコンがiPadホーム画面に表示されている様子" class="step-image">
+        
+        <div class="info-box">
+            <strong>📍 どこにある?</strong><br>
+            ホーム画面で「Chrome」という名前のアイコンを探してタップしてください。<br>
+            青・赤・黄・緑の4色の丸いマークが目印です。
+        </div>
+        
+        <h3>ステップ2️⃣ 「Chrome にログイン」ボタンをタップします</h3>
+        <img src="../images/login-screen.jpg" alt="Chromeログイン画面に「Chromeにログイン」ボタンが表示されている" class="step-image">
+        
+        <div class="info-box">
+            <strong>✅ やること:</strong>
+            <ul>
+                <li>画面中央に表示される「Chrome にログイン」ボタンをタップ</li>
+                <li>あなたの会社用Googleアカウントの情報を入力します
+                    <ul>
+                        <li><span class="important-highlight">メールアドレス</span>: 会社から配布されたもの</li>
+                        <li><span class="important-highlight">パスワード</span>: あなたが設定したもの</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="point-box">
+            <strong>💡 ポイント:</strong>
+            <ul>
+                <li>入力は落ち着いてゆっくりで大丈夫です</li>
+                <li>パスワードが「●●●●」と表示されるのは、セキュリティのためです</li>
+                <li>間違えても何度でもやり直せます</li>
+            </ul>
+        </div>
+        
+        <h3>ステップ3️⃣ ログイン完了を確認します</h3>
+        
+        <div class="success-box">
+            <strong>✅ 確認方法:</strong><br>
+            画面の右上に、あなたのアカウントの最初の文字やアイコンが表示されていればOKです!
+        </div>
+        
+        <div class="success-box">
+            <strong>🎉 これで準備完了!</strong><br>
+            いつも通り、お仕事を始めてください。
+        </div>
+        
+        <div class="navigation">
+            <a href="index.html" class="nav-button secondary">← ホームに戻る</a>
+            <a href="logout.html" class="nav-button">退勤時の手順を見る →</a>
+        </div>
+    </div>
+</body>
+</html>
