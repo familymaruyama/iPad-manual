@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>キーボードの接続方法 - iPad業務用マニュアル</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .back-home:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .intro p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .step {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .step:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step h2 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-description {
+            font-size: 16px;
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .tips-section {
+            background: #e7f3ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #2196F3;
+        }
+
+        .tips-section h3 {
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .tips-section ul {
+            margin-left: 20px;
+        }
+
+        .tips-section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .troubleshooting {
+            background: #fff3e0;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .troubleshooting h3 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .troubleshooting ul {
+            margin-left: 20px;
+        }
+
+        .troubleshooting li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .step {
+                padding: 20px;
+            }
+
+            .step h2 {
+                font-size: 20px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .nav-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⌨️ キーボードの接続方法</h1>
+            <p>ELECOM Touch Book の接続手順</p>
+            <a href="index.html" class="back-home">🏠 ホームに戻る</a>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p><strong>📱 このページでは、ELECOM Touch Book キーボードとiPadを接続する方法をご案内します。</strong></p>
+                <p>初回接続後は、2回目以降は自動で接続されます。安心して作業を進めてください。</p>
+            </div>
+
+            <!-- ステップ1 -->
+            <div class="step">
+                <span class="step-number">1</span>
+                <h2>iPadの設定を開く</h2>
+                <p class="step-description">
+                    iPadのホーム画面から「設定」アプリをタップして開きます。<br>
+                    設定アプリは歯車のアイコンです。
+                </p>
+                <img src="../images/keyboard-settings.jpg" alt="iPad設定画面" class="step-image">
+                <div class="highlight-box">
+                    <strong>💡 ポイント</strong>
+                    設定アプリが見つからない場合は、画面を下にスワイプして検索バーから「設定」と入力してください。
+                </div>
+            </div>
+
+            <!-- ステップ2 -->
+            <div class="step">
+                <span class="step-number">2</span>
+                <h2>Bluetoothをオンにする</h2>
+                <p class="step-description">
+                    設定画面の中から「Bluetooth」を選択します。<br>
+                    Bluetoothがオフになっている場合は、スイッチをタップしてオンにしてください。
+                </p>
+                <div class="highlight-box">
+                    <strong>💡 ポイント</strong>
+                    Bluetoothをオンにすると、緑色に変わります。<br>
+                    これで接続の準備が整いました。
+                </div>
+            </div>
+
+            <!-- ステップ3 -->
+            <div class="step">
+                <span class="step-number">3</span>
+                <h2>Touch Bookをペアリングモードにする</h2>
+                <p class="step-description">
+                    Touch Bookのキーボードで、<strong>「option」キーと「tab」キーを同時に3秒間長押し</strong>します。
+                </p>
+                <img src="../images/keyboard-pairing.jpg" alt="キーボードペアリング操作" class="step-image">
+                <div class="highlight-box">
+                    <strong>💡 ポイント</strong>
+                    スイッチ横のランプが点滅し始めたら、ペアリングモードに入った証拠です。<br>
+                    ランプが点滅している間に、次のステップに進んでください。
+                </div>
+            </div>
+
+            <!-- ステップ4 -->
+            <div class="step">
+                <span class="step-number">4</span>
+                <h2>iPadでTouch Bookを選択</h2>
+                <p class="step-description">
+                    iPadのBluetooth設定画面に「Touch Book」または「ELECOM」という名前のデバイスが表示されます。<br>
+                    これをタップして接続します。
+                </p>
+                <img src="../images/keyboard-select.jpg" alt="デバイス選択画面" class="step-image">
+                <div class="highlight-box">
+                    <strong>💡 ポイント</strong>
+                    デバイス名が表示されるまで、数秒かかる場合があります。<br>
+                    表示されない場合は、ステップ3のペアリング操作をもう一度試してください。
+                </div>
+            </div>
+
+            <!-- ステップ5 -->
+            <div class="step">
+                <span class="step-number">5</span>
+                <h2>接続完了を確認</h2>
+                <p class="step-description">
+                    接続が成功すると、「Touch Book」の横に「接続済み」と表示されます。<br>
+                    これでキーボードが使えるようになりました！
+                </p>
+                <img src="../images/keyboard-connected.jpg" alt="接続完了画面" class="step-image">
+                <div class="highlight-box">
+                    <strong>✅ 確認方法</strong>
+                    キーボードで何か文字を入力してみてください。<br>
+                    iPadに文字が表示されれば、接続は成功です。
+                </div>
+            </div>
+
+            <!-- 便利な情報 -->
+            <div class="tips-section">
+                <h3>💡 知っておくと便利なこと</h3>
+                <ul>
+                    <li><strong>2回目以降は自動接続</strong>：一度接続すれば、次回からはキーボードの電源を入れるだけで自動的に接続されます。</li>
+                    <li><strong>充電について</strong>：Touch BookはUSB-Cケーブルで充電します。バッテリー残量が少なくなったら、充電を忘れずに。</li>
+                    <li><strong>複数のiPadでの使用</strong>：毎日違うiPadを使う場合でも、上記の手順で接続すれば問題なく使えます。</li>
+                    <li><strong>キーボードの電源オフ</strong>：使い終わったら、キーボードの電源をオフにすることでバッテリーを節約できます。</li>
+                </ul>
+            </div>
+
+            <!-- トラブルシューティング -->
+            <div class="troubleshooting">
+                <h3>🔧 困ったときは</h3>
+                <ul>
+                    <li>
+                        <strong>Q: デバイスが表示されない</strong><br>
+                        A: キーボードのペアリングモードを再度試してください。option + tab を3秒間しっかり長押しして、ランプが点滅しているか確認してください。
+                    </li>
+                    <li>
+                        <strong>Q: 接続できない</strong><br>
+                        A: iPadのBluetoothを一度オフにして、再度オンにしてから試してください。または、iPadを再起動すると改善することがあります。
+                    </li>
+                    <li>
+                        <strong>Q: 文字が入力できない</strong><br>
+                        A: 接続が途切れている可能性があります。Bluetooth設定画面で「Touch Book」が「接続済み」になっているか確認してください。
+                    </li>
+                    <li>
+                        <strong>Q: キーボードの電源が入らない</strong><br>
+                        A: バッテリーが切れている可能性があります。USB-Cケーブルで充電してから、もう一度試してください。
+                    </li>
+                    <li>
+                        <strong>Q: それでも解決しない場合</strong><br>
+                        A: 情報システム部門（内線: XXXX / メール: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b1e9e9e9f1d2dedcc1d0dfc89fd2dedc">[email&#160;protected]</a>）にお問い合わせください。
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ナビゲーション -->
+            <div class="navigation">
+                <a href="index.html" class="nav-button">🏠 ホームに戻る</a>
+                <a href="apple-pencil.html" class="nav-button">➡️ Apple Pencilの接続</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>最終更新日: 2026年1月 | 情報システム部門</p>
+        </footer>
+    </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
