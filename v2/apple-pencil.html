@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Pencilの接続方法 - iPad業務用マニュアル</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .back-home:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .intro p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .model-info {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .model-info h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .model-info p {
+            margin-bottom: 10px;
+        }
+
+        .step {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .step:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step h2 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .step-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-description {
+            font-size: 16px;
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .tips-section {
+            background: #e7f3ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #2196F3;
+        }
+
+        .tips-section h3 {
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .tips-section ul {
+            margin-left: 20px;
+        }
+
+        .tips-section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .troubleshooting {
+            background: #fff3e0;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .troubleshooting h3 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .troubleshooting ul {
+            margin-left: 20px;
+        }
+
+        .troubleshooting li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .step {
+                padding: 20px;
+            }
+
+            .step h2 {
+                font-size: 20px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .nav-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✏️ Apple Pencilの接続方法</h1>
+            <p>Apple Pencil（USB-C）の設定手順</p>
+            <a href="index.html" class="back-home">🏠 ホームに戻る</a>
+        </header>
+
+        <div class="content">
+            <div class="intro">
+                <p><strong>✏️ このページでは、Apple Pencil（USB-C）とiPadを接続する方法をご案内します。</strong></p>
+                <p>USB-Cケーブルを使って簡単にペアリングと充電ができます。</p>
+            </div>
+
+            <!-- モデル情報 -->
+            <div class="model-info">
+                <h3>📱 お使いのApple Pencil</h3>
+                <img src="../images/apple-pencil-usbc.jpg" alt="Apple Pencil USB-C" class="step-image">
+                <p><strong>型番：MUWA3ZA/A（Apple Pencil USB-C）</strong></p>
+                <p><strong>特徴：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>上部をスライドするとUSB-C充電ポートが出てきます</li>
+                    <li>USB-Cケーブルで接続・充電します</li>
+                    <li>磁石でiPadの側面に装着できます（充電はできません）</li>
+                    <li>筆圧感知、傾き検知に対応</li>
+                </ul>
+            </div>
+
+            <!-- ステップ1: キャップをスライド -->
+            <div class="step">
+                <span class="step-number">1</span>
+                <h2>Apple Pencilのキャップをスライドする</h2>
+                <p class="step-description">
+                    Apple Pencilの上部のキャップを<strong>スライド</strong>させると、USB-C充電ポートが現れます。<br>
+                    キャップは完全に外れないので、紛失の心配がありません。
+                </p>
+                <div class="highlight-box">
+                    <strong>💡 ポイント</strong>
+                    キャップは引っ張って外すのではなく、横にスライドさせてください。<br>
+                    無理に引っ張ると壊れる可能性があるので注意しましょう。
+                </div>
+            </div>
+
+            <!-- ステップ2: USB-Cケーブルで接続 -->
+            <div class="step">
+                <span class="step-number">2</span>
+                <h2>USB-CケーブルでiPadと接続する</h2>
+                <p class="step-description">
+                    USB-Cケーブルを使って、Apple PencilとiPadを接続します。
+                </p>
+                <img src="../images/apple-pencil-usbc-connection.jpg" alt="USB-C接続" class="step-image">
+                <ol style="margin-left: 30px; margin-top: 15px;">
+                    <li style="margin-bottom: 15px;">
+                        <strong>USB-Cケーブルを用意</strong><br>
+                        iPad付属のUSB-Cケーブル、または市販のUSB-Cケーブルを使用します。
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <strong>Apple Pencilに接続</strong><br>
+                        ケーブルの一方をApple PencilのUSB-Cポートに差し込みます。
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <strong>iPadに接続</strong><br>
+                        ケーブルのもう一方をiPadのUSB-Cポート（下部または側面）に差し込みます。
+                    </li>
+                </ol>
+                <div class="highlight-box">
+                    <strong>💡 ポイント</strong>
+                    接続すると、画面に「Bluetoothペアリングの要求」が表示されます。<br>
+                    「ペアリング」または「接続」をタップしてください。
+                </div>
+            </div>
+
+            <!-- ステップ3: ペアリング完了 -->
+            <div class="step">
+                <span class="step-number">3</span>
+                <h2>ペアリング完了を確認する</h2>
+                <p class="step-description">
+                    ペアリングが成功すると、画面の上部に「Apple Pencil 接続済み」という通知が表示されます。
+                </p>
+                <img src="../images/apple-pencil-connected.jpg" alt="Apple Pencil 接続完了" class="step-image">
+                <div class="highlight-box">
+                    <strong>✅ 確認方法</strong>
+                    メモアプリやノートアプリを開いて、Apple Pencilで何か書いてみてください。<br>
+                    書けたら、接続は成功です！
+                </div>
+            </div>
+
+            <!-- ステップ4: 充電とバッテリー確認 -->
+            <div class="step">
+                <span class="step-number">4</span>
+                <h2>充電とバッテリー残量の確認</h2>
+                <p class="step-description">
+                    Apple Pencil（USB-C）の充電とバッテリー残量の確認方法です。
+                </p>
+                <img src="../images/apple-pencil-battery.jpg" alt="Apple Pencil バッテリー表示" class="step-image">
+                
+                <h3 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">🔋 充電方法</h3>
+                <ul style="margin-left: 30px;">
+                    <li style="margin-bottom: 10px;">
+                        <strong>USB-Cケーブルで充電</strong><br>
+                        ステップ2と同じ方法で、Apple PencilとiPad（または充電アダプター）を接続します。
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>充電時間</strong><br>
+                        フル充電まで約20分。約1分の充電で約30分使用できます。
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>バッテリー持続時間</strong><br>
+                        フル充電で約12時間使用可能です。
+                    </li>
+                </ul>
+
+                <h3 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">📊 バッテリー残量の確認</h3>
+                <ul style="margin-left: 30px;">
+                    <li style="margin-bottom: 10px;">
+                        <strong>ウィジェットで確認</strong><br>
+                        iPadのホーム画面を右にスワイプして、バッテリーウィジェットを表示します。
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>設定から確認</strong><br>
+                        設定 → Bluetooth → Apple Pencilの横に表示されるバッテリー残量を確認できます。
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>⚠️ 注意</strong>
+                    Apple Pencil（USB-C）は、iPadの側面に磁石で装着できますが、<strong>装着しているだけでは充電されません</strong>。<br>
+                    充電するには、必ずUSB-Cケーブルを使用してください。
+                </div>
+            </div>
+
+            <!-- 便利な情報 -->
+            <div class="tips-section">
+                <h3>💡 知っておくと便利なこと</h3>
+                <ul>
+                    <li><strong>2回目以降は自動接続</strong>：一度ペアリングすれば、次回からはApple Pencilを使おうとするだけで自動的に接続されます。</li>
+                    <li><strong>磁石での装着</strong>：iPadの側面に磁石で装着できるので、持ち運びに便利です（充電はできません）。</li>
+                    <li><strong>複数のiPadでの使用</strong>：毎日違うiPadを使う場合は、USB-Cケーブルで接続し直せば、簡単にペアリングできます。</li>
+                    <li><strong>USB-Cアダプター</strong>：USB-C充電アダプターを使えば、iPadに接続しなくても単体で充電できます。</li>
+                    <li><strong>バッテリー残量の確認</strong>：使い始める前にバッテリー残量を確認する習慣をつけましょう。</li>
+                </ul>
+            </div>
+
+            <!-- トラブルシューティング -->
+            <div class="troubleshooting">
+                <h3>🔧 困ったときは</h3>
+                <ul>
+                    <li>
+                        <strong>Q: Apple Pencilが反応しない</strong><br>
+                        A: まず、バッテリー残量を確認してください。充電が必要な場合は、USB-Cケーブルで充電してください。
+                    </li>
+                    <li>
+                        <strong>Q: ペアリングできない</strong><br>
+                        A: iPadのBluetoothがオンになっているか確認してください。また、iPadを再起動すると改善することがあります。
+                    </li>
+                    <li>
+                        <strong>Q: USB-Cケーブルで接続しても充電されない</strong><br>
+                        A: ケーブルがしっかり差し込まれているか確認してください。別のUSB-Cケーブルを試してみることもおすすめです。
+                    </li>
+                    <li>
+                        <strong>Q: キャップが開かない</strong><br>
+                        A: キャップは引っ張るのではなく、横にスライドさせてください。力を入れすぎると壊れる可能性があるので、優しく操作してください。
+                    </li>
+                    <li>
+                        <strong>Q: 書いているときに線が途切れる</strong><br>
+                        A: Apple Pencilのペン先が緩んでいる可能性があります。時計回りに締めてください。または、ペン先が摩耗している場合は交換が必要です。
+                    </li>
+                    <li>
+                        <strong>Q: 別のiPadとペアリングし直したい</strong><br>
+                        A: 新しいiPadにUSB-Cケーブルで接続するだけで、自動的に切り替わります。前のiPadとのペアリングは自動的に解除されます。
+                    </li>
+                    <li>
+                        <strong>Q: それでも解決しない場合</strong><br>
+                        A: 情報システム部門（内線: XXXX / メール: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c29a9a9a82a1adafb2a3acbbeca1adaf">[email&#160;protected]</a>）にお問い合わせください。
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ナビゲーション -->
+            <div class="navigation">
+                <a href="keyboard.html" class="nav-button">⬅️ キーボードの接続</a>
+                <a href="index.html" class="nav-button">🏠 ホームに戻る</a>
+                <a href="tips.html" class="nav-button">➡️ iPadのコツ</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>最終更新日: 2026年1月 | 情報システム部門</p>
+        </footer>
+    </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
