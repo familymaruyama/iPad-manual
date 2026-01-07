@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>業務用iPad　ガイドライン - ホーム</title>
+    <title>iPad Chrome Manual V2 - ホーム</title>
     <style>
         /* ========================================
            CSS Variables - 企業カラーパレット
@@ -58,7 +58,6 @@
         .header p {
             font-size: 1.2em;
             opacity: 0.95;
-            font-weight: 400;
         }
 
         /* ========================================
@@ -99,44 +98,12 @@
         }
 
         /* ========================================
-           イントロダクション
-        ======================================== */
-        .intro-section {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 12px var(--shadow);
-            border-left: 5px solid var(--primary-orange);
-        }
-
-        .intro-section h2 {
-            color: var(--primary-orange);
-            font-size: 1.6em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .intro-section h2::before {
-            content: "📱";
-            font-size: 1.3em;
-            margin-right: 12px;
-        }
-
-        .intro-section p {
-            color: var(--medium-gray);
-            line-height: 1.8;
-            font-size: 1.05em;
-        }
-
-        /* ========================================
            カードグリッド
         ======================================== */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-bottom: 40px;
         }
 
@@ -229,12 +196,41 @@
             border-top-color: #ff9800;
         }
 
-        .card-rules {
-            border-top-color: #9c27b0;
-        }
-
         .card-tips {
             border-top-color: #00bcd4;
+        }
+
+        /* ========================================
+           禁止事項・ルールカード（横幅いっぱい）
+        ======================================== */
+        .rules-card-wrapper {
+            margin-bottom: 40px;
+        }
+
+        .card-rules {
+            border-top-color: #9c27b0;
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border: 3px solid #9c27b0;
+            padding: 35px;
+        }
+
+        .card-rules .card-icon {
+            font-size: 3.5em;
+        }
+
+        .card-rules .card-title {
+            font-size: 1.6em;
+            color: #6a1b9a;
+        }
+
+        .card-rules .card-description {
+            font-size: 1.1em;
+            color: #7b1fa2;
+            font-weight: 500;
+        }
+
+        .card-rules:hover {
+            background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 100%);
         }
 
         /* ========================================
@@ -315,11 +311,15 @@
                 font-size: 1.2em;
             }
 
-            .intro-section {
-                padding: 20px;
+            .card-rules {
+                padding: 25px;
             }
 
-            .intro-section h2 {
+            .card-rules .card-icon {
+                font-size: 2.8em;
+            }
+
+            .card-rules .card-title {
                 font-size: 1.3em;
             }
 
@@ -341,6 +341,10 @@
             .card-icon {
                 font-size: 2.2em;
             }
+
+            .card-rules .card-icon {
+                font-size: 2.5em;
+            }
         }
 
         /* ========================================
@@ -361,8 +365,8 @@
 <body>
     <!-- ヘッダー -->
     <div class="header">
-        <h1>📱 業務用iPad ガイドライン</h1>
-        <p>iPadの使い方完全ガイド</p>
+        <h1>📱 業務用iPad　ガイドライン </h1>
+        <p>iPad の使い方完全ガイド</p>
     </div>
 
     <!-- メインコンテナ -->
@@ -374,10 +378,13 @@
             <span>iPad マニュアル</span>
         </div>
 
-        <!-- イントロダクション -->
-        <div class="intro-section">
-            <h2>はじめに</h2>
-            <p>このマニュアルでは、社内で使用する iPad の基本的な使い方から、各種周辺機器の接続方法、運用ルールまでを分かりやすく解説しています。困ったときはいつでもこのページを参照してください。</p>
+        <!-- 禁止事項・ルールカード（横幅いっぱい） -->
+        <div class="rules-card-wrapper">
+            <a href="rules.html" class="card card-rules" id="rules">
+                <div class="card-icon">📋</div>
+                <h2 class="card-title">禁止事項・ルール</h2>
+                <p class="card-description">iPad の使用に関する禁止事項と運用ルールを確認してください</p>
+            </a>
         </div>
 
         <!-- カードグリッド -->
@@ -410,13 +417,6 @@
                 <p class="card-description">Apple Pencil (USB-C) の接続・充電・ペアリング方法</p>
             </a>
 
-            <!-- ガイドライン・禁止事項・ルール -->
-            <a href="rules.html" class="card card-rules" id="rules">
-                <div class="card-icon">📋</div>
-                <h2 class="card-title">ガイドライン・禁止事項・ルール</h2>
-                <p class="card-description">iPad の使用に関する禁止事項と運用ルールを確認</p>
-            </a>
-
             <!-- iPadのコツ -->
             <a href="tips.html" class="card card-tips" id="tips">
                 <div class="card-icon">💡</div>
@@ -427,7 +427,7 @@
 
         <!-- フッター -->
         <div class="footer">
-            <p>📞 困ったときは iPad推進委員まで</p>
+            <p>📞 困ったときは DX 推進委員まで</p>
             <p>このマニュアルは常に更新されています</p>
             <p style="font-size: 0.9em; color: var(--medium-gray); margin-top: 10px;">最終更新: 2026年1月</p>
         </div>
