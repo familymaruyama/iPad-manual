@@ -3,149 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>業務用iPad　活用ガイドライン - ホーム</title>
+    <title>iPad Chrome Manual V2 - ホーム</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .header {
             text-align: center;
             color: white;
             margin-bottom: 50px;
-            padding: 40px 20px;
         }
-        
+
         .header h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        
+
         .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 1.3em;
+            opacity: 0.95;
         }
-        
-        .menu-grid {
+
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
-        
-        .menu-card {
+
+        .card {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
             text-decoration: none;
-            color: inherit;
             display: block;
         }
-        
-        .menu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
         }
-        
-        .menu-card .icon {
-            font-size: 3em;
+
+        .card-icon {
+            font-size: 3.5em;
             margin-bottom: 20px;
-            display: block;
+            text-align: center;
         }
-        
-        .menu-card h2 {
-            font-size: 1.5em;
-            color: #1a73e8;
+
+        .card-title {
+            font-size: 1.6em;
+            color: #333;
             margin-bottom: 15px;
+            font-weight: 700;
+            text-align: center;
         }
-        
-        .menu-card p {
+
+        .card-description {
             color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05em;
+            text-align: center;
         }
-        
-        .menu-card .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: opacity 0.3s ease;
+
+        /* 特別なカード用の色 */
+        .card-login {
+            border-top: 5px solid #4caf50;
         }
-        
-        .menu-card .btn:hover {
-            opacity: 0.9;
+
+        .card-logout {
+            border-top: 5px solid #f44336;
         }
-        
-        .priority {
-            border: 3px solid #f57c00;
-            position: relative;
+
+        .card-keyboard {
+            border-top: 5px solid #2196f3;
         }
-        
-        .priority::before {
-            content: "必須";
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background: #f57c00;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.9em;
-            font-weight: bold;
+
+        .card-pencil {
+            border-top: 5px solid #ff9800;
         }
-        
+
+        .card-rules {
+            border-top: 5px solid #9c27b0;
+        }
+
+        .card-tips {
+            border-top: 5px solid #00bcd4;
+        }
+
         .footer {
             text-align: center;
             color: white;
-            padding: 30px 20px;
             margin-top: 50px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
         }
-        
+
         .footer p {
-            opacity: 0.8;
-            margin: 10px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
         }
-        
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
             }
-            
-            .menu-grid {
+
+            .header p {
+                font-size: 1.1em;
+            }
+
+            .cards-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
-            .menu-card {
+
+            .card {
                 padding: 25px;
             }
-            
-            .menu-card .icon {
+
+            .card-icon {
                 font-size: 2.5em;
             }
-            
-            .menu-card h2 {
+
+            .card-title {
                 font-size: 1.3em;
             }
         }
@@ -154,56 +154,57 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📱 業務用iPad　活用ガイドライン　</h1>
-            <p>〜iPadを使った業務をサポートします〜</p>
+            <h1>📱 業務用iPad　ガイドライン </h1>
+            <p>iPadの使い方完全ガイド</p>
         </div>
-        
-        <div class="menu-grid">
-            <!-- 出勤時にやること -->
-            <a href="login.html" class="menu-card priority">
-                <span class="icon">🌅</span>
-                <h2>出勤時にやること</h2>
-                <p>Google Chromeへのログイン手順を確認できます。毎日の業務開始時に必ず実施してください。</p>
-                <span class="btn">詳しく見る →</span>
+
+        <div class="cards-grid">
+             <!-- ガイドライン・禁止事項・ルール（NEW!） -->
+            <a href="rules.html" class="card card-rules">
+                <div class="card-icon">📋</div>
+                <h2 class="card-title">ガイドライン・禁止事項・ルール</h2>
+                <p class="card-description">iPad の使用に関する禁止事項と運用ルールを確認</p>
             </a>
             
-            <!-- 退勤時にやること -->
-            <a href="logout.html" class="menu-card priority">
-                <span class="icon">🌙</span>
-                <h2>退勤時にやること</h2>
-                <p>Google Chromeからのログアウト手順を確認できます。セキュリティのため必ず実施してください。</p>
-                <span class="btn">詳しく見る →</span>
+            <!-- 出勤時の手順 -->
+            <a href="login.html" class="card card-login">
+                <div class="card-icon">🔓</div>
+                <h2 class="card-title">出勤時の手順</h2>
+                <p class="card-description">iPad を受け取ってから業務開始までの手順を説明します</p>
             </a>
-            
-            <!-- キーボードの接続方法 -->
-            <a href="keyboard.html" class="menu-card">
-                <span class="icon">⌨️</span>
-                <h2>キーボードの接続方法</h2>
-                <p>Bluetoothキーボードの接続手順とトラブル対処法を確認できます。</p>
-                <span class="btn">詳しく見る →</span>
+
+            <!-- 退勤時の手順 -->
+            <a href="logout.html" class="card card-logout">
+                <div class="card-icon">🔒</div>
+                <h2 class="card-title">退勤時の手順</h2>
+                <p class="card-description">業務終了から iPad を返却するまでの手順を説明します</p>
             </a>
-            
-            <!-- Apple Pencilの接続方法 -->
-            <a href="apple-pencil.html" class="menu-card">
-                <span class="icon">✏️</span>
-                <h2>Apple Pencilの接続方法</h2>
-                <p>Apple Pencilのペアリング方法と充電方法を確認できます。</p>
-                <span class="btn">詳しく見る →</span>
+
+            <!-- キーボード接続 -->
+            <a href="keyboard.html" class="card card-keyboard">
+                <div class="card-icon">⌨️</div>
+                <h2 class="card-title">キーボードの接続方法</h2>
+                <p class="card-description">ELECOM Touch Book キーボードの接続とペアリング方法</p>
             </a>
-            
-            <!-- iPadのコツ -->
-            <a href="tips.html" class="menu-card">
-                <span class="icon">💡</span>
-                <h2>iPadのコツ</h2>
-                <p>便利な使い方やよくあるトラブルの対処法を確認できます。</p>
-                <span class="btn">詳しく見る →</span>
+
+            <!-- Apple Pencil接続 -->
+            <a href="apple-pencil.html" class="card card-pencil">
+                <div class="card-icon">✏️</div>
+                <h2 class="card-title">Apple Pencil の接続方法</h2>
+                <p class="card-description">Apple Pencil (USB-C) の接続・充電・ペアリング方法</p>
+            </a>
+
+            <!-- iPadのコツ（今後追加予定） -->
+            <a href="tips.html" class="card card-tips">
+                <div class="card-icon">💡</div>
+                <h2 class="card-title">iPad のコツ</h2>
+                <p class="card-description">便利な機能とトラブルシューティング（準備中）</p>
             </a>
         </div>
-        
+
         <div class="footer">
-            <p><strong>📞 サポート</strong></p>
-            
-            <p style="margin-top: 20px; font-size: 0.9em;">© 2025 DX戦略課　</p>
+            <p>📞 困ったときは iPad推進委員まで</p>
+            <p>このマニュアルは常に更新されています</p>
         </div>
     </div>
 </body>
