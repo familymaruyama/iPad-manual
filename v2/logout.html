@@ -3,361 +3,682 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>退勤時にやること - iPad業務マニュアル</title>
+    <title>退勤時の手順 | iPad Chrome Manual V2</title>
     <style>
+        /* ========================================
+           CSS Variables - 企業カラーパレット
+        ======================================== */
+        :root {
+            --primary-orange: #E57138;
+            --light-orange: #FFF8F5;
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --warning-red: #f44336;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(229, 113, 56, 0.3);
+        }
+
+        /* ========================================
+           リセット & 基本スタイル
+        ======================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+            background: var(--light-gray);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--dark-gray);
+            line-height: 1.6;
         }
-        
+
+        /* ========================================
+           ヘッダー
+        ======================================== */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, var(--warning-red) 0%, #c62828 100%);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px var(--shadow);
         }
-        
-        .header-content {
-            max-width: 1000px;
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        /* ========================================
+           コンテナ
+        ======================================== */
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ========================================
+           パンくずリスト
+        ======================================== */
+        .breadcrumb {
+            background: var(--white);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px var(--shadow);
+            font-size: 0.95em;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #d96430;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--medium-gray);
+            margin: 0 8px;
+        }
+
+        /* ========================================
+           コンテンツ
+        ======================================== */
+        .content {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 12px var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        /* ========================================
+           警告ボックス
+        ======================================== */
+        .critical-warning {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border: 3px solid var(--warning-red);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .critical-warning h2 {
+            color: var(--warning-red);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .critical-warning h2::before {
+            content: "⚠️ ";
+            font-size: 1.2em;
+        }
+
+        .critical-warning p {
+            color: #c62828;
+            font-size: 1.15em;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           ステップセクション
+        ======================================== */
+        .step {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: var(--light-orange);
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-orange);
+        }
+
+        .step:last-of-type {
+            margin-bottom: 30px;
+        }
+
+        .step-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            margin-bottom: 20px;
         }
-        
-        .back-button {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            transition: background 0.3s ease;
+
+        .step-number {
+            background: var(--primary-orange);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
-        
-        .back-button:hover {
-            background: rgba(255,255,255,0.3);
+
+        .step-title {
+            font-size: 1.6em;
+            color: var(--dark-gray);
+            font-weight: 700;
         }
-        
-        .header h1 {
-            font-size: 1.8em;
-            text-align: center;
-            flex: 1;
+
+        .step-content {
+            margin-left: 70px;
         }
-        
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .page-title {
-            font-size: 2em;
-            color: #1a73e8;
-            text-align: center;
-            margin-bottom: 10px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #1a73e8;
-        }
-        
-        .subtitle {
-            text-align: center;
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 40px;
-        }
-        
-        h2 {
-            font-size: 1.8em;
-            color: #1a73e8;
-            margin-top: 50px;
-            margin-bottom: 25px;
-            padding-left: 15px;
-            border-left: 5px solid #1a73e8;
-        }
-        
-        h3 {
-            font-size: 1.4em;
-            color: #34a853;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            background-color: #e8f5e9;
-            border-radius: 6px;
-        }
-        
-        .step-image {
-            width: 100%;
-            max-width: 900px;
-            height: auto;
-            margin: 20px auto;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        
-        .info-box {
-            background-color: #e3f2fd;
-            border-left: 4px solid #1a73e8;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 6px;
-        }
-        
-        .info-box strong {
-            color: #1a73e8;
-            font-size: 1.1em;
-        }
-        
-        .point-box {
-            background-color: #fff9e6;
-            border-left: 4px solid #fbbc04;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 6px;
-        }
-        
-        .point-box strong {
-            color: #f57c00;
-            font-size: 1.1em;
-        }
-        
-        .warning-box {
-            background-color: #ffebee;
-            border-left: 4px solid #e53935;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 6px;
-        }
-        
-        .warning-box strong {
-            color: #c62828;
-            font-size: 1.1em;
-        }
-        
-        .success-box {
-            background-color: #e8f5e9;
-            border-left: 4px solid #34a853;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 6px;
-        }
-        
-        .success-box strong {
-            color: #2e7d32;
-            font-size: 1.1em;
-        }
-        
-        ul {
-            margin: 15px 0 15px 30px;
-        }
-        
-        li {
-            margin: 10px 0;
+
+        .step-content p {
+            color: var(--medium-gray);
             line-height: 1.8;
+            font-size: 1.05em;
+            margin-bottom: 15px;
         }
-        
-        .security-section {
-            background-color: #fff3e0;
-            padding: 30px;
+
+        .step-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .step-content li {
+            color: var(--medium-gray);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .step-content strong {
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        /* ========================================
+           画像
+        ======================================== */
+        .step-content img {
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        /* ========================================
+           情報ボックス
+        ======================================== */
+        .info-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .info-box h4 {
+            color: #1565c0;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .info-box h4::before {
+            content: "📍";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .info-box p {
+            color: #1565c0;
+            line-height: 1.7;
+            font-size: 1.02em;
+        }
+
+        /* ========================================
+           重要なポイント
+        ======================================== */
+        .important-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .important-box h4 {
+            color: #e65100;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .important-box h4::before {
+            content: "💡";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .important-box p,
+        .important-box ul {
+            color: #e65100;
+            line-height: 1.7;
+            font-size: 1.02em;
+        }
+
+        .important-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .important-box li {
+            margin-bottom: 8px;
+        }
+
+        /* ========================================
+           成功メッセージ
+        ======================================== */
+        .success-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .success-box h4 {
+            color: #2e7d32;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .success-box h4::before {
+            content: "✅";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .success-box p,
+        .success-box ul {
+            color: #2e7d32;
+            line-height: 1.7;
+            font-size: 1.02em;
+        }
+
+        .success-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .success-box li {
+            margin-bottom: 8px;
+        }
+
+        /* ========================================
+           完了メッセージ
+        ======================================== */
+        .completion-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 2px solid #4caf50;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
             margin: 30px 0;
         }
-        
-        .security-section h2 {
-            color: #e65100;
-            border-left-color: #e65100;
-        }
-        
-        .danger-list {
-            background-color: #ffebee;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 20px 0;
-        }
-        
-        .danger-list li {
-            color: #c62828;
-        }
-        
-        .safe-list {
-            background-color: #e8f5e9;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 20px 0;
-        }
-        
-        .safe-list li {
+
+        .completion-box h3 {
             color: #2e7d32;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
-        
-        .navigation {
+
+        .completion-box h3::before {
+            content: "🎉";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        .completion-box p {
+            color: #2e7d32;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           説明セクション
+        ======================================== */
+        .explanation-section {
+            background: var(--light-orange);
+            border-left: 5px solid var(--primary-orange);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .explanation-section h2 {
+            color: var(--primary-orange);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .explanation-section h2::before {
+            content: "⚠️";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .explanation-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .explanation-section h3 {
+            color: var(--dark-gray);
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .explanation-section p {
+            color: var(--medium-gray);
+            line-height: 1.8;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+
+        .explanation-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .explanation-section li {
+            color: var(--medium-gray);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .explanation-section strong {
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        /* ========================================
+           ボタン
+        ======================================== */
+        .button-container {
             display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
             padding-top: 30px;
-            border-top: 2px solid #e0e0e0;
+            border-top: 2px solid var(--light-gray);
+            flex-wrap: wrap;
         }
-        
-        .nav-button {
+
+        .button {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 25px;
+            padding: 15px 35px;
             text-decoration: none;
-            font-weight: bold;
-            transition: opacity 0.3s ease;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            text-align: center;
         }
-        
-        .nav-button:hover {
-            opacity: 0.9;
+
+        .back-button {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #d96430 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px var(--shadow-hover);
         }
-        
-        .nav-button.secondary {
-            background: #e0e0e0;
-            color: #333;
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow-hover);
         }
-        
+
+        .back-button::before {
+            content: "← ";
+            margin-right: 8px;
+        }
+
+        /* ========================================
+           レスポンシブ対応
+        ======================================== */
         @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
             .container {
+                padding: 30px 15px;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            .step {
                 padding: 20px;
-                margin: 20px;
             }
-            
-            .page-title {
-                font-size: 1.6em;
+
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
-            
-            h2 {
+
+            .step-number {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .step-content {
+                margin-left: 0;
+            }
+
+            .step-title {
+                font-size: 1.3em;
+            }
+
+            .breadcrumb {
+                font-size: 0.85em;
+                padding: 12px 15px;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .critical-warning {
+                padding: 20px;
+            }
+
+            .critical-warning h2 {
                 font-size: 1.4em;
             }
-            
-            h3 {
+
+            .explanation-section {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .step-number {
+                width: 40px;
+                height: 40px;
                 font-size: 1.2em;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .navigation {
-                flex-direction: column;
-                gap: 15px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- ヘッダー -->
     <div class="header">
-        <div class="header-content">
-            <a href="index.html" class="back-button">← ホームに戻る</a>
-            <h1>🌙 退勤時にやること</h1>
-            <div style="width: 120px;"></div>
-        </div>
+        <h1>🔐 Google Chrome ログアウト手順</h1>
+        <p>セキュリティのため必ず実施してください</p>
     </div>
-    
+
+    <!-- メインコンテナ -->
     <div class="container">
-        <h1 class="page-title">Google Chrome ログアウト手順</h1>
-        <p class="subtitle">セキュリティのため必ず実施してください</p>
-        
-        <div class="warning-box">
-            <strong>⚠️ とても重要な作業です!</strong><br>
-            退勤時は必ずログアウトしてください。ログアウトしないと、次に使う人があなたのアカウントで作業できてしまいます。
+        <!-- パンくずリスト -->
+        <div class="breadcrumb">
+            <a href="index.html">トップ</a>
+            <span>›</span>
+            <span>退勤時の手順</span>
         </div>
-        
-        <h2>🔐 Chromeからログアウトする</h2>
-        
-        <h3>ステップ1️⃣ 画面右上のプロフィールアイコンをタップ</h3>
-        <img src="../images/profile-icon.jpg" alt="画面右上のプロフィールアイコンの位置が赤い印で示されている" class="step-image">
-        
-        <div class="info-box">
-            <strong>📍 どこにある?</strong><br>
-            画面の一番右上に、丸いアイコンがあります。<br>
-            そこをタップしてください。
-        </div>
-        
-        <h3>ステップ2️⃣ 「ログアウト」をタップ</h3>
-        <img src="../images/logout-button.jpg" alt="メニューに「ログアウト」ボタンが表示されている" class="step-image">
-        
-        <div class="info-box">
-            <strong>✅ やること:</strong>
-            <ul>
-                <li>メニューが表示されます</li>
-                <li>「ログアウト」と書かれたボタンを探します</li>
-                <li>そのボタンをタップしてください</li>
-            </ul>
-        </div>
-        
-        <div class="point-box">
-            <strong>💡 ポイント:</strong>
-            <ul>
-                <li>メニューは下にスクロールできます</li>
-                <li>「ログアウト」が見つからない場合は、下の方を確認してください</li>
-            </ul>
-        </div>
-        
-        <h3>ステップ3️⃣ ログアウト完了を確認</h3>
-        <img src="../images/logout-complete.jpg" alt="ログアウト後、再び「Chromeにログイン」ボタンが表示されている" class="step-image">
-        
-        <div class="success-box">
-            <strong>✅ 確認方法:</strong>
-            <ul>
-                <li>画面に再び「Chrome にログイン」ボタンが表示されている</li>
-                <li>右上のあなたのアイコンが消えている</li>
-            </ul>
-        </div>
-        
-        <div class="success-box">
-            <strong>🎉 これで完了です!</strong><br>
-            安心してiPadを返却してください。
-        </div>
-        
-        <div class="security-section">
-            <h2>⚠️ なぜログアウトが必要なの?</h2>
-            <img src="../images/security-warning.jpg" alt="二人の人物がiPadを介して情報が漏れる危険性を示すイラスト" class="step-image">
-            
-            <h3 style="background-color: #ffebee; color: #c62828;">ログアウトしないと...</h3>
-            <div class="danger-list">
-                <strong>❌ 次に使う人があなたのアカウントで作業できてしまいます</strong>
+
+        <!-- コンテンツ -->
+        <div class="content">
+            <!-- 重要な警告 -->
+            <div class="critical-warning">
+                <h2>とても重要な作業です!</h2>
+                <p>退勤時は必ずログアウトしてください。ログアウトしないと、次に使う人があなたのアカウントで作業できてしまいます。</p>
+            </div>
+
+            <!-- ステップ1 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h2 class="step-title">画面右上のプロフィールアイコンをタップ</h2>
+                </div>
+                <div class="step-content">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=A28kqjhYmd61GlidRN8cGsi%2FmqnvdNUX12YBP5WdmMm%2Bt0B6A0qn%2Bzptb0bSUiM9cNoiyawSWhzEdzUYx%2BBl1%2FjWwVFB8yFeIB2xZz69PWATVoV3&u2=3GlKwO7GFP3Lg1%2Bv&width=1024" alt="画面右上のプロフィールアイコンの位置が赤い印で示されている">
+                    
+                    <div class="info-box">
+                        <h4>どこにある?</h4>
+                        <p>画面の一番右上に、丸いアイコンがあります。<br>そこをタップしてください。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ステップ2 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h2 class="step-title">「ログアウト」をタップ</h2>
+                </div>
+                <div class="step-content">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=Tke3qu9fREsV4rb240Pegr%2Fy7ZsHbTh%2FODbiBoAZl%2BQ7pWZzN3nmPyOUPgfCt28Kb2quWJ9YN8oGkTZqwrCBOEm3rNLFBrHwwAhX%2BqgfBNubZAs8XA%3D%3D&u2=9f4xBAlF7XgeirzP&width=1024" alt="メニューに「ログアウト」ボタンが表示されている">
+                    
+                    <div class="success-box">
+                        <h4>やること:</h4>
+                        <ul>
+                            <li>メニューが表示されます</li>
+                            <li>「ログアウト」と書かれたボタンを探します</li>
+                            <li>そのボタンをタップしてください</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="important-box">
+                        <h4>ポイント:</h4>
+                        <ul>
+                            <li>メニューは下にスクロールできます</li>
+                            <li>「ログアウト」が見つからない場合は、下の方を確認してください</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ステップ3 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h2 class="step-title">ログアウト完了を確認</h2>
+                </div>
+                <div class="step-content">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=ddJ%2B8Ooo6Zw2k37lSTNoNyxth71hI03PWqqxaGUcUXsQS9FkopNg8El8hqDF4jr4v7WOPtLmy86Na4v1CJLTTejjj2kebbPulkWAmRVUuOQeVrR7hiV3&u2=3RidbZthcVoMa8Fi&width=1024" alt="ログアウト後、再び「Chromeにログイン」ボタンが表示されている">
+                    
+                    <div class="success-box">
+                        <h4>確認方法:</h4>
+                        <ul>
+                            <li>画面に再び「Chrome にログイン」ボタンが表示されている</li>
+                            <li>右上のあなたのアイコンが消えている</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 完了メッセージ -->
+            <div class="completion-box">
+                <h3>これで完了です!</h3>
+                <p>安心してiPadを返却してください。</p>
+            </div>
+
+            <!-- 説明セクション -->
+            <div class="explanation-section">
+                <h2>なぜログアウトが必要なの?</h2>
+                
+                <img src="https://sspark.genspark.ai/cfimages?u1=4t2bwothrApY5%2BzGPkaA0pUcaENtVvcyRRJZaoC0vxwg6qwGR2UteJTtKrrJ3zEl4DezGOdGNhDfUElG7nzktt%2BJOhec6LLrqP7TpTchAhnUNFW9E4sfcw%3D%3D&u2=91dzRAtZhS5ywCiT&width=1024" alt="二人の人物がiPadを介して情報が漏れる危険性を示すイラスト">
+                
+                <h3>ログアウトしないと...</h3>
+                <p><strong>❌ 次に使う人があなたのアカウントで作業できてしまいます</strong></p>
                 <ul>
                     <li>あなたのメールが見られる</li>
                     <li>あなたの名前で文書が作成される</li>
                     <li>あなたの個人情報が見られる</li>
                 </ul>
-            </div>
-            
-            <h3 style="background-color: #e8f5e9; color: #2e7d32;">ログアウトすれば安心!</h3>
-            <div class="safe-list">
-                <strong>✅ あなたの情報が守られます</strong>
+                
+                <h3>ログアウトすれば安心!</h3>
+                <p><strong>✅ あなたの情報が守られます</strong></p>
                 <ul>
                     <li>次の人は必ず自分のアカウントでログインする必要があります</li>
                     <li>あなたの情報は守られます</li>
                     <li>会社の大切な情報も守られます</li>
                 </ul>
+                
+                <p style="margin-top: 20px; font-size: 1.1em;"><strong>📌 ログアウトは「鍵をかける」のと同じです</strong><br>家を出るときに鍵をかけるように、退勤時は必ずログアウトしてください。</p>
             </div>
-            
-            <div class="warning-box">
-                <strong>📌 ログアウトは「鍵をかける」のと同じです</strong><br>
-                家を出るときに鍵をかけるように、退勤時は必ずログアウトしてください。
+
+            <!-- ボタン -->
+            <div class="button-container">
+                <a href="index.html" class="button back-button">ホームに戻る</a>
             </div>
-        </div>
-        
-        <div class="navigation">
-            <a href="login.html" class="nav-button secondary">← 出勤時の手順を見る</a>
-            <a href="index.html" class="nav-button">ホームに戻る →</a>
         </div>
     </div>
 </body>
