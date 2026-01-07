@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPad Chrome Manual V2 - ホーム</title>
+    <title>業務用iPad　ガイドライン - ホーム</title>
     <style>
+        /* ========================================
+           CSS Variables - 企業カラーパレット
+        ======================================== */
+        :root {
+            --primary-orange: #E57138;
+            --light-orange: #FFF8F5;
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(229, 113, 56, 0.3);
+        }
+
+        /* ========================================
+           リセット & 基本スタイル
+        ======================================== */
         * {
             margin: 0;
             padding: 0;
@@ -13,123 +30,272 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--light-gray);
             min-height: 100vh;
-            padding: 20px;
+            overflow-x: hidden;
+            color: var(--dark-gray);
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        /* ========================================
+           ヘッダー
+        ======================================== */
         .header {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #d96430 100%);
+            color: var(--white);
+            padding: 50px 20px;
             text-align: center;
-            color: white;
-            margin-bottom: 50px;
+            box-shadow: 0 4px 20px var(--shadow);
         }
 
         .header h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .header p {
-            font-size: 1.3em;
+            font-size: 1.2em;
             opacity: 0.95;
+            font-weight: 400;
         }
 
+        /* ========================================
+           コンテナ
+        ======================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ========================================
+           パンくずリスト
+        ======================================== */
+        .breadcrumb {
+            background: var(--white);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px var(--shadow);
+            font-size: 0.95em;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #d96430;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--medium-gray);
+            margin: 0 8px;
+        }
+
+        /* ========================================
+           イントロダクション
+        ======================================== */
+        .intro-section {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 12px var(--shadow);
+            border-left: 5px solid var(--primary-orange);
+        }
+
+        .intro-section h2 {
+            color: var(--primary-orange);
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .intro-section h2::before {
+            content: "📱";
+            font-size: 1.3em;
+            margin-right: 12px;
+        }
+
+        .intro-section p {
+            color: var(--medium-gray);
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        /* ========================================
+           カードグリッド
+        ======================================== */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             margin-bottom: 40px;
         }
 
+        /* ========================================
+           カード共通スタイル
+        ======================================== */
         .card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px var(--shadow);
             transition: all 0.3s ease;
             cursor: pointer;
             text-decoration: none;
             display: block;
+            border-top: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--light-orange) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .card:hover::before {
+            opacity: 1;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px var(--shadow-hover);
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 1;
         }
 
         .card-icon {
-            font-size: 3.5em;
+            font-size: 3em;
             margin-bottom: 20px;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.15);
         }
 
         .card-title {
-            font-size: 1.6em;
-            color: #333;
-            margin-bottom: 15px;
+            font-size: 1.4em;
+            color: var(--dark-gray);
+            margin-bottom: 12px;
             font-weight: 700;
             text-align: center;
         }
 
         .card-description {
-            color: #666;
-            line-height: 1.8;
-            font-size: 1.05em;
+            color: var(--medium-gray);
+            line-height: 1.7;
+            font-size: 1em;
             text-align: center;
         }
 
-        /* 特別なカード用の色 */
+        /* ========================================
+           カード個別スタイル（トップボーダーカラー）
+        ======================================== */
         .card-login {
-            border-top: 5px solid #4caf50;
+            border-top-color: #4caf50;
         }
 
         .card-logout {
-            border-top: 5px solid #f44336;
+            border-top-color: #f44336;
         }
 
         .card-keyboard {
-            border-top: 5px solid #2196f3;
+            border-top-color: #2196f3;
         }
 
         .card-pencil {
-            border-top: 5px solid #ff9800;
+            border-top-color: #ff9800;
         }
 
         .card-rules {
-            border-top: 5px solid #9c27b0;
+            border-top-color: #9c27b0;
         }
 
         .card-tips {
-            border-top: 5px solid #00bcd4;
+            border-top-color: #00bcd4;
         }
 
+        /* ========================================
+           フッター
+        ======================================== */
         .footer {
-            text-align: center;
-            color: white;
-            margin-top: 50px;
+            background: var(--white);
             padding: 30px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--primary-orange);
         }
 
         .footer p {
-            font-size: 1.1em;
+            color: var(--medium-gray);
+            font-size: 1.05em;
             line-height: 1.8;
+            margin-bottom: 10px;
         }
 
+        .footer p:first-child {
+            color: var(--primary-orange);
+            font-weight: 600;
+            font-size: 1.15em;
+        }
+
+        /* ========================================
+           ハイライト効果（アンカーリンク用）
+        ======================================== */
+        .highlight {
+            animation: highlightFade 3s ease;
+        }
+
+        @keyframes highlightFade {
+            0% {
+                background-color: var(--light-orange);
+            }
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        /* ========================================
+           レスポンシブ対応
+        ======================================== */
         @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
             .header h1 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
 
             .header p {
-                font-size: 1.1em;
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 30px 15px;
             }
 
             .cards-grid {
@@ -146,66 +312,189 @@
             }
 
             .card-title {
+                font-size: 1.2em;
+            }
+
+            .intro-section {
+                padding: 20px;
+            }
+
+            .intro-section h2 {
                 font-size: 1.3em;
+            }
+
+            .breadcrumb {
+                font-size: 0.85em;
+                padding: 12px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .card-icon {
+                font-size: 2.2em;
+            }
+        }
+
+        /* ========================================
+           Google Sites iFrame 対応
+        ======================================== */
+        @media screen and (max-width: 768px) {
+            /* iFrame内でのモバイル表示最適化 */
+            .container {
+                padding: 20px 10px;
+            }
+
+            .header {
+                padding: 30px 15px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- ヘッダー -->
+    <div class="header">
+        <h1>>📱 iPad ガイドライン</h1>
+        <p>iPadの使い方完全ガイド</p>
+    </div>
+
+    <!-- メインコンテナ -->
     <div class="container">
-        <div class="header">
-            <h1>📱 業務用iPad　ガイドライン </h1>
-            <p>iPadの使い方完全ガイド</p>
+        <!-- パンくずリスト -->
+        <div class="breadcrumb">
+            <a href="#">トップ</a>
+            <span>›</span>
+            <span>iPad マニュアル</span>
         </div>
 
+        <!-- イントロダクション -->
+        <div class="intro-section">
+            <h2>はじめに</h2>
+            <p>このマニュアルでは、社内で使用する iPad の基本的な使い方から、各種周辺機器の接続方法、運用ルールまでを分かりやすく解説しています。困ったときはいつでもこのページを参照してください。</p>
+        </div>
+
+        <!-- カードグリッド -->
         <div class="cards-grid">
-             <!-- ガイドライン・禁止事項・ルール（NEW!） -->
-            <a href="rules.html" class="card card-rules">
-                <div class="card-icon">📋</div>
-                <h2 class="card-title">ガイドライン・禁止事項・ルール</h2>
-                <p class="card-description">iPad の使用に関する禁止事項と運用ルールを確認</p>
-            </a>
-            
             <!-- 出勤時の手順 -->
-            <a href="login.html" class="card card-login">
+            <a href="login.html" class="card card-login" id="login">
                 <div class="card-icon">🔓</div>
                 <h2 class="card-title">出勤時の手順</h2>
                 <p class="card-description">iPad を受け取ってから業務開始までの手順を説明します</p>
             </a>
 
             <!-- 退勤時の手順 -->
-            <a href="logout.html" class="card card-logout">
+            <a href="logout.html" class="card card-logout" id="logout">
                 <div class="card-icon">🔒</div>
                 <h2 class="card-title">退勤時の手順</h2>
                 <p class="card-description">業務終了から iPad を返却するまでの手順を説明します</p>
             </a>
 
             <!-- キーボード接続 -->
-            <a href="keyboard.html" class="card card-keyboard">
+            <a href="keyboard.html" class="card card-keyboard" id="keyboard">
                 <div class="card-icon">⌨️</div>
                 <h2 class="card-title">キーボードの接続方法</h2>
                 <p class="card-description">ELECOM Touch Book キーボードの接続とペアリング方法</p>
             </a>
 
             <!-- Apple Pencil接続 -->
-            <a href="apple-pencil.html" class="card card-pencil">
+            <a href="apple-pencil.html" class="card card-pencil" id="apple-pencil">
                 <div class="card-icon">✏️</div>
                 <h2 class="card-title">Apple Pencil の接続方法</h2>
                 <p class="card-description">Apple Pencil (USB-C) の接続・充電・ペアリング方法</p>
             </a>
 
-            <!-- iPadのコツ（今後追加予定） -->
-            <a href="tips.html" class="card card-tips">
+            <!-- ガイドライン・禁止事項・ルール -->
+            <a href="rules.html" class="card card-rules" id="rules">
+                <div class="card-icon">📋</div>
+                <h2 class="card-title">ガイドライン・禁止事項・ルール</h2>
+                <p class="card-description">iPad の使用に関する禁止事項と運用ルールを確認</p>
+            </a>
+
+            <!-- iPadのコツ -->
+            <a href="tips.html" class="card card-tips" id="tips">
                 <div class="card-icon">💡</div>
                 <h2 class="card-title">iPad のコツ</h2>
                 <p class="card-description">便利な機能とトラブルシューティング（準備中）</p>
             </a>
         </div>
 
+        <!-- フッター -->
         <div class="footer">
             <p>📞 困ったときは iPad推進委員まで</p>
             <p>このマニュアルは常に更新されています</p>
+            <p style="font-size: 0.9em; color: var(--medium-gray); margin-top: 10px;">最終更新: 2026年1月</p>
         </div>
     </div>
+
+    <!-- JavaScript: アンカーリンクのハイライト機能 -->
+    <script>
+        // ========================================
+        // URLハッシュで遷移した際のハイライト表示
+        // ========================================
+        window.addEventListener('load', function() {
+            // Google Sites iframe内での動作確認
+            if (window.parent !== window) {
+                console.log('Running inside Google Sites iframe');
+            }
+
+            // URLハッシュがある場合
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // スムーズスクロール
+                    setTimeout(function() {
+                        targetElement.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                        
+                        // ハイライト表示
+                        targetElement.classList.add('highlight');
+                        
+                        // 3秒後にハイライトを削除
+                        setTimeout(function() {
+                            targetElement.classList.remove('highlight');
+                        }, 3000);
+                    }, 100);
+                }
+            }
+        });
+
+        // ========================================
+        // スムーズスクロール（アンカーリンク用）
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    
+                    // URLハッシュを更新
+                    history.pushState(null, null, '#' + targetId);
+                    
+                    // ハイライト表示
+                    targetElement.classList.add('highlight');
+                    setTimeout(function() {
+                        targetElement.classList.remove('highlight');
+                    }, 3000);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
